@@ -8,18 +8,33 @@ function onNewReplyComposeHandler(event) {
     insertSignature(event);
 }
 
-// One entry per brand, keyed by email domain.
+// One entry per sub-brand, keyed by the sender's email domain.
 const BRANDS = {
     "slash.ae": {
         name: "Slash",
         tagline: "Strategic Design Studio",
         url: "www.slash.ae"
+    },
+    "fabrica.ae": {
+        name: "Fabrica",
+        tagline: "Interdisciplinary Making Platform",
+        url: "www.fabrica.ae"
+    },
+    "fountconcept.ae": {
+        name: "Fount",
+        tagline: "Curated Concept Store",
+        url: "www.fountconcept.ae"
+    },
+    "central.ae": {
+        name: "Central",
+        tagline: "Logistics Platform",
+        url: "www.central.ae"
+    },
+    "basearchitecture.ae": {
+        name: "Base",
+        tagline: "Collaborative Architecture Studio",
+        url: "www.basearchitecture.ae"
     }
-    // Copy the entry above for each remaining brand, e.g.:
-    // "fabrica.ae": { name: "Fabrica", tagline: "TAGLINE", url: "www.fabrica.ae" },
-    // "fount.ae":   { name: "Fount",   tagline: "TAGLINE", url: "www.fount.ae" },
-    // "central.ae": { name: "Central", tagline: "TAGLINE", url: "www.central.ae" },
-    // "base.ae":    { name: "Base",    tagline: "TAGLINE", url: "www.base.ae" }
 };
 
 const FONT = "font-family:Helvetica,Arial,sans-serif;font-size:10pt;";
