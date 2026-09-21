@@ -1,3 +1,13 @@
+Office.onReady();
+
+function onNewMessageComposeHandler(event) {
+    insertSignature(event);
+}
+
+function onNewReplyComposeHandler(event) {
+    insertSignature(event);
+}
+
 function insertSignature(event) {
     const profile = Office.context.mailbox.userProfile;
     const name = escapeHtml(profile.displayName || "");
@@ -28,3 +38,6 @@ function insertSignature(event) {
 function escapeHtml(text) {
     return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
+
+Office.actions.associate("onNewMessageComposeHandler", onNewMessageComposeHandler);
+Office.actions.associate("onNewReplyComposeHandler", onNewReplyComposeHandler);
