@@ -9,36 +9,43 @@ function onNewReplyComposeHandler(event) {
 }
 
 // One entry per sub-brand, keyed by the sender's email domain.
+// "site" is the website address without "www." (added in code below).
 const BRANDS = {
     "slash.ae": {
         name: "Slash",
         tagline: "Strategic Design Studio",
-        url: "www.slash.ae"
+        site: "slash.ae"
     },
     "fabrica.ae": {
         name: "Fabrica",
         tagline: "Interdisciplinary Making Platform",
-        url: "www.fabrica.ae"
+        site: "fabrica.ae"
     },
     "fountconcept.ae": {
         name: "Fount",
         tagline: "Curated Concept Store",
-        url: "www.fountconcept.ae"
+        site: "fountconcept.ae"
     },
     "central.ae": {
         name: "Central",
         tagline: "Logistics Platform",
-        url: "www.central.ae"
+        site: "central.ae"
     },
     "basearchitecture.ae": {
         name: "Base",
         tagline: "Collaborative Architecture Studio",
-        url: "www.basearchitecture.ae"
+        site: "basearchitecture.ae"
     }
 };
 
 const FONT = "font-family:Helvetica,Arial,sans-serif;font-size:10pt;";
-const RIPPLE_LINK = `<a href="https://www.ripplecollective.ae" style="${FONT}">www.ripplecollective.ae</a>`;
+
+function makeLink(site) {
+    const host = "www." + site;
+    return '<a href="https://' + host + '" style="' + FONT + '">' + host + "</a>";
+}
+
+const RIPPLE_LINK = makeLink("ripplecollective.ae");
 
 function getSignatureHtml(name, email) {
     const domain = (email.split("@")[1] || "").toLowerCase();
@@ -52,7 +59,7 @@ function getSignatureHtml(name, email) {
   –<br>
   <strong>${brand.name}</strong><br>
   ${brand.tagline}<br>
-  <a href="https://${brand.url}" style="${FONT}">${brand.url}</a><br><br>
+  ${makeLink(brand.site)}<br><br>
   ${brand.name} is part of Ripple Collective, a Multidisciplinary Design Ecosystem, based in Abu Dhabi.<br>
   ${RIPPLE_LINK}
 </div>`;

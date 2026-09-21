@@ -4,14 +4,15 @@
            xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" 
            xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" 
            xsi:type="MailApp">
-  <Id>e5e84847-1934-4530-9b45-123456789abc</Id>
-  <Version>1.0.0.1</Version>
+  <Id>a5b7bb1f-f125-48dc-bcc9-585272892417</Id>
+  <Version>1.0.0.2</Version>
   <ProviderName>Ripple Collective</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Ripple Collective Signature" />
   <Description DefaultValue="Automatically adds the Ripple Collective signature to new messages and replies." />
   <IconUrl DefaultValue="https://raw.githubusercontent.com/OfficeDev/Office-Add-in-samples/main/Samples/outlook-set-signature/assets/icon-32.png" />
   <HighResolutionIconUrl DefaultValue="https://raw.githubusercontent.com/OfficeDev/Office-Add-in-samples/main/Samples/outlook-set-signature/assets/icon-80.png" />
+  <SupportUrl DefaultValue="https://www.ripplecollective.ae" />
   <Hosts>
     <Host Name="Mailbox" />
   </Hosts>
