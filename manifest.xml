@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" 
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" 
-           xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" 
-           xsi:type="MailApp">
+<OfficeApp
+    xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+    xsi:type="MailApp">
+
   <Id>a5b7bb1f-f125-48dc-bcc9-585272892417</Id>
-  <Version>1.0.0.2</Version>
+  <Version>1.0.0.3</Version>
   <ProviderName>Ripple Collective</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
+
   <DisplayName DefaultValue="Ripple Collective Signature" />
-  <Description DefaultValue="Automatically adds the Ripple Collective signature to new messages and replies." />
+  <Description DefaultValue="Automatically adds the appropriate brand signature to new messages, replies, and forwards." />
+
   <IconUrl DefaultValue="https://raw.githubusercontent.com/OfficeDev/Office-Add-in-samples/main/Samples/outlook-set-signature/assets/icon-32.png" />
   <HighResolutionIconUrl DefaultValue="https://raw.githubusercontent.com/OfficeDev/Office-Add-in-samples/main/Samples/outlook-set-signature/assets/icon-80.png" />
   <SupportUrl DefaultValue="https://www.ripplecollective.ae" />
+
   <Hosts>
     <Host Name="Mailbox" />
   </Hosts>
+
   <Requirements>
     <Sets>
       <Set Name="Mailbox" MinVersion="1.10" />
     </Sets>
   </Requirements>
+
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
@@ -29,17 +35,27 @@
       </DesktopSettings>
     </Form>
   </FormSettings>
+
   <Permissions>ReadWriteMailbox</Permissions>
+
   <Rule xsi:type="RuleCollection" Mode="Or">
     <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
   </Rule>
-  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
-    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+
+  <VersionOverrides
+      xmlns="http://schemas.microsoft.com/office/mailappversionoverrides"
+      xsi:type="VersionOverridesV1_0">
+
+    <VersionOverrides
+        xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
+        xsi:type="VersionOverridesV1_1">
+
       <Requirements>
         <bt:Sets DefaultMinVersion="1.10">
           <bt:Set Name="Mailbox" />
         </bt:Sets>
       </Requirements>
+
       <Hosts>
         <Host xsi:type="MailHost">
           <Runtimes>
@@ -47,23 +63,31 @@
               <Override type="javascript" resid="runtimeJs" />
             </Runtime>
           </Runtimes>
+
           <DesktopFormFactor>
             <ExtensionPoint xsi:type="LaunchEvent">
               <LaunchEvents>
-                <LaunchEvent Type="OnNewMessageCompose" FunctionName="onNewMessageComposeHandler" />
-                <LaunchEvent Type="OnNewReplyCompose" FunctionName="onNewReplyComposeHandler" />
+                <LaunchEvent
+                    Type="OnNewMessageCompose"
+                    FunctionName="onNewMessageComposeHandler" />
               </LaunchEvents>
               <SourceLocation resid="Autorun" />
             </ExtensionPoint>
           </DesktopFormFactor>
         </Host>
       </Hosts>
+
       <Resources>
         <bt:Urls>
-          <bt:Url id="Autorun" DefaultValue="https://amin-alz.github.io/named-signature/autorun.html" />
-          <bt:Url id="runtimeJs" DefaultValue="https://amin-alz.github.io/named-signature/signature.js" />
+          <bt:Url
+              id="Autorun"
+              DefaultValue="https://amin-alz.github.io/named-signature/autorun.html" />
+          <bt:Url
+              id="runtimeJs"
+              DefaultValue="https://amin-alz.github.io/named-signature/signature.js" />
         </bt:Urls>
       </Resources>
+
     </VersionOverrides>
   </VersionOverrides>
 </OfficeApp>
